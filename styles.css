@@ -1,0 +1,235 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #2c3e50;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-section input,
+.profile-section button,
+.profile-section select {
+    margin: 5px;
+    padding: 10px;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+    font-weight: normal;
+}
+
+.filter-button:hover {
+    background-color: #2c3e50;
+}
+
+.filter-button.geral {
+    background-color: #95a5a6;
+}
+
+.filter-button.sangue {
+    background-color: #e74c3c;
+}
+
+.filter-button.morte {
+    background-color: #000;
+}
+
+.filter-button.energia {
+    background-color: #8e44ad;
+}
+
+.filter-button.conhecimento {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+.filter-button.medo {
+    background-color: #fff;
+    color: #000;
+}
+
+.filter-button.meuBaralho {
+    background-color: #3498db;
+}
+
+.deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card-container {
+    perspective: 1000px;
+}
+
+.card {
+    width: 140px;
+    height: 210px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    background-position: center;
+}
+
+.card-front {
+    background-color: #fff;
+}
+
+.card-back {
+    background-color: #2c3e50;
+    transform: rotateY(180deg);
+}
+
+.full-screen-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.full-screen-card .card-display {
+    width: 400px;
+    height: 600px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    background-size: cover;
+    background-position: center;
+}
+
+.flip-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #ecf0f1;
+    background-color: #34495e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.flip-button:hover {
+    background-color: #2c3e50;
+}
+
+.hidden {
+    display: none;
+}
+
+.selected-profile {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ecf0f1;
+    background-color: #34495e;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Estilos para telas menores que 600px */
+@media (max-width: 600px) {
+    .filter-buttons {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .filter-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .card {
+        width: 120px;
+        height: 180px;
+    }
+
+    .full-screen-card .card-display {
+        width: 320px;
+        height: 480px;
+    }
+
+    .flip-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+/* Estilos para telas entre 600px e 900px */
+@media (min-width: 601px) and (max-width: 900px) {
+    .filter-buttons {
+        flex-wrap: wrap;
+    }
+
+    .filter-button {
+        font-size: 15px;
+        padding: 9px 18px;
+    }
+
+    .card {
+        width: 120px;
+        height: 180px;
+    }
+
+    .full-screen-card .card-display {
+        width: 340px;
+        height: 510px;
+    }
+
+    .flip-button {
+        font-size: 17px;
+        padding: 9px 18px;
+    }
+}

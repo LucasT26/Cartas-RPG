@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização de Cartas de Baralho</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="profile-section">
+        <input type="text" id="username" placeholder="Digite seu nome de usuário">
+        <button id="create-profile">Criar Perfil</button>
+        <button id="load-profile">Carregar Perfil</button>
+        <select id="profile-selector"></select>
+        <div id="selected-profile" class="selected-profile">Perfil Selecionado: Nenhum</div>
+    </div>
+
+    <div class="filter-buttons">
+        <!-- Botões de filtro -->
+        <button class="filter-button geral" data-group="geral">Geral</button>
+        <button class="filter-button sangue" data-group="sangue">Sangue</button>
+        <button class="filter-button morte" data-group="morte">Morte</button>
+        <button class="filter-button energia" data-group="energia">Energia</button>
+        <button class="filter-button conhecimento" data-group="conhecimento">Conhecimento</button>
+        <button class="filter-button medo" data-group="medo">Medo</button>
+        <button class="filter-button meuBaralho" data-group="meuBaralho">Meu Baralho</button>
+    </div>
+    
+    <div id="deck" class="deck"></div>
+
+    <div id="full-screen-card" class="full-screen-card hidden">
+        <div class="card-container">
+            <div class="card-display card" id="card-display"></div>
+        </div>
+        <button id="flip-button" class="flip-button">Virar Carta</button>
+        <button id="add-to-my-deck" class="flip-button">Adicionar ao Meu Baralho</button>
+        <button id="remove-from-my-deck" class="flip-button hidden">Remover do Meu Baralho</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
