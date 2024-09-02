@@ -194,6 +194,22 @@ function updateSelectedProfile(profile) {
     selectedProfileElement.textContent = profile ? `Perfil Selecionado: ${profile}` : 'Perfil Selecionado: Nenhum';
 }
 
+// Chame a função imediatamente após a definição
+populateProfileSelector();
+
+// Carregamento automático do primeiro perfil disponível ao iniciar a página
+window.addEventListener('DOMContentLoaded', () => {
+    populateProfileSelector();
+
+    if (profileSelector.options.length > 0) {
+        profileSelector.selectedIndex = 0;
+        currentProfile = profileSelector.value;
+        updateSelectedProfile(currentProfile);
+        createDeck();
+        filterCards('meuBaralho');
+    }
+});
+
 createProfileButton.addEventListener('click', () => {
     const username = usernameInput.value.trim();
     if (username && !localStorage.getItem(`deck_${username}`)) {
@@ -202,6 +218,7 @@ createProfileButton.addEventListener('click', () => {
         usernameInput.value = '';
         currentProfile = username;
         updateSelectedProfile(username);
+        createDeck();  // Atualiza o deck para o novo perfil
     }
 });
 
@@ -211,7 +228,6 @@ loadProfileButton.addEventListener('click', () => {
         currentProfile = username;
         updateSelectedProfile(username);
         createDeck();
-        currentGroup = 'geral';
         filterCards('meuBaralho');
     }
 });
